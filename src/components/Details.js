@@ -15,27 +15,31 @@ const kf = keyframes`
 
 
 const StyledDetails = styled.div`
-
-font-size: 3.5rem;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 4.5rem;
 padding-top: 80px;
+color: lightgrey;
 
 
 transform: scale(0.8);
   opacity: 0; // start of animation
-  animation: ${kf} 7.0s ease-in-out forwards;
+  animation: ${kf} 6.0s ease-in-out forwards;
 
-
+  
   
 `
 
 const ExplanationFont = styled.div`
+font-family: 'Noto Serif', serif;
 
-font-size: 1.2rem;
+font-size: 1.5rem;
 padding-top: 1.2rem;
 
-padding-right: 20%;
-padding-left: 20%;
-font-style: 'Oxford';
+padding-right: 27%;
+padding-left: 27%;
+line-height: 1.7rem;
+
+
 
 
 

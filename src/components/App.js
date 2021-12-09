@@ -50,7 +50,7 @@ function App() {
     
     <div className="App">
       
-       <h2> 🪐 🚀  NASA Picture of the Day  🚀 🪐</h2>
+       
       <Details title={title} explanation={explanation}/> 
       <Picture image={picture} />
      
