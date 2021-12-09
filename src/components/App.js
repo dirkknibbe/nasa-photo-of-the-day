@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import {API_KEY, BASE_URL} from '../constants/index'
+import Picture from './Picture';
 
 // import Details from './Details'
 // import Picture from './Picture';
@@ -40,7 +41,8 @@ function App() {
 
   return (
     <div className="App">
-      {}
+      <Picture image={picture} />
+
       <p>
         Read through the instructions in the README.md file to build your NASA
         app! Have fun <span role="img" aria-label='go!'>🚀</span>!

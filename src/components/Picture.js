@@ -1,15 +1,13 @@
 import React from 'react';
 
 
-// const Picture = props => {
-//     return (
-//         <div className='picture'>
-//           {props.data.explanation}
-//           <button onClick={() => openExplanation(props)}>
-//             See Explanation
-//           </button>
-//         </div>
-//       )
-// }
+const Picture = props => {
+    return (
+        <div className='picture'>
+          <img src = {props.image} alt = {props.altimage}/>
+          
+        </div>
+      )
+}
 
-// export default Picture;
+export default Picture;
