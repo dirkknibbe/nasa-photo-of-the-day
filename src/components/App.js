@@ -10,8 +10,8 @@ import Details from './Details';
 
 function App() {
   const [picture, setPicture] = useState([])
-  
   const [title, setTitle] = useState('')
+  const [explanation, setExplanation] = useState('')
 
 
 
@@ -30,24 +30,30 @@ function App() {
 
 
   useEffect(() => { 
-    const fetchTitle = () => {
+    const fetchDetails = () => {
       axios.get(`${BASE_URL}${API_KEY}`)
       .then(res => {
         console.log(res.data.title)
+        console.log(res.data)
          setTitle(res.data.title);
+         setExplanation(res.data.explanation)
       })
       .catch(err => {
       })
     }
-     fetchTitle();
+     fetchDetails();
       }, [])
 
     
 
   return (
+    
     <div className="App">
+      
+       <h2> 🪐 🚀  NASA Picture of the Day  🚀 🪐</h2>
+      <Details title={title} explanation={explanation}/> 
       <Picture image={picture} />
-      <Details title={title}/> 
+     
       
     </div>
  
