@@ -5,26 +5,21 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import {API_KEY, BASE_URL} from '../constants/index'
 import Picture from './Picture';
+import Details from './Details';
 
-// import Details from './Details'
-// import Picture from './Picture';
 
 function App() {
   const [picture, setPicture] = useState([])
-  const [currentPictureId, setCurrentPictureId] = useState(null)
+  
+  const [title, setTitle] = useState('')
 
-  // const openExplanation = id => {
-  //   setCurrentPictureId(id)
-  // }
-  // const closeExplanation = () => {
-  //   setCurrentPictureId(null)
-  // }
+
 
   useEffect(() => { 
     const fetchPicture = () => {
       axios.get(`${BASE_URL}${API_KEY}`)
       .then(res => {
-        console.log(res.data.hdurl)
+        
          setPicture(res.data.hdurl);
       })
       .catch(err => {
@@ -33,20 +28,27 @@ function App() {
      fetchPicture();
       }, [])
 
-      // const Picture = (props) => (
-      //   <div className='picture'>
-      //     {props.data.hdurl}
-      //   </div>
-      // )
+
+  useEffect(() => { 
+    const fetchTitle = () => {
+      axios.get(`${BASE_URL}${API_KEY}`)
+      .then(res => {
+        console.log(res.data.title)
+         setTitle(res.data.title);
+      })
+      .catch(err => {
+      })
+    }
+     fetchTitle();
+      }, [])
+
+    
 
   return (
     <div className="App">
       <Picture image={picture} />
-
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <Details title={title}/> 
+      
     </div>
  
   );
