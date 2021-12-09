@@ -1,16 +1,19 @@
 import React from 'react';
-import './App.css';
+import '../design-files/App.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import {API_KEY, BASE_URL} from './constants/index'
+import {API_KEY, BASE_URL} from '../constants/index'
+
+import Details from './Details'
+import Picture from './Picture';
 
 function App() {
   const [picture, setPicture] = useState([])
   const [currentPictureId, setCurrentPictureId] = useState(null)
 
-  const openExplanation = id => {
-    setCurrentPictureId(id)
+  const openExplanation = props => {
+    setCurrentPictureId(props)
   }
   const closeExplanation = () => {
     setCurrentPictureId(null)
@@ -20,8 +23,8 @@ function App() {
     const fetchPicture = () => {
       axios.get(`${BASE_URL}${API_KEY}`)
       .then(res => {
-        console.log(res)
-         setPicture(res.url);
+        console.log(res.data.url)
+         setPicture(res.data.url);
       })
       .catch(err => {
         debugger
@@ -32,8 +35,8 @@ function App() {
 
       const Picture = (props) => (
         <div className='picture'>
-          {props.url}
-          <button onClick={() => openExplanation(props.explanation)}>
+          {props.data.url}
+          <button onClick={() => openExplanation(props.data.explanation)}>
             See Explanation
           </button>
         </div>
@@ -41,6 +44,11 @@ function App() {
 
   return (
     <div className="App">
+      
+      <Picture />
+        )
+      
+
        {
         currentPictureId && <Picture pictureId={currentPictureId} close={closeExplanation} />
       }
