@@ -27,7 +27,6 @@ function App() {
          setPicture(res.data.hdurl);
       })
       .catch(err => {
-        debugger
       })
     }
      fetchPicture();
@@ -35,10 +34,7 @@ function App() {
 
       // const Picture = (props) => (
       //   <div className='picture'>
-      //     {props.data.url}
-      //     <button onClick={() => openExplanation(props.data.explanation)}>
-      //       See Explanation
-      //     </button>
+      //     {props.data.hdurl}
       //   </div>
       // )
 
