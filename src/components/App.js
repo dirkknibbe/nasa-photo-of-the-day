@@ -20,7 +20,7 @@ function App() {
       axios.get(`${BASE_URL}${API_KEY}`)
       .then(res => {
         
-         setPicture(res.data.hdurl);
+         setPicture(res.data.url);
       })
       .catch(err => {
       })
