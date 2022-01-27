@@ -24,7 +24,7 @@ padding-top: 60px;
 transform: scale(0.9); // start of animation
   opacity: 0; // start of animation
   animation: ${kf} 5.0s ease-in-out forwards;
-  
+  padding-bottom: 200px;
   
 `
 

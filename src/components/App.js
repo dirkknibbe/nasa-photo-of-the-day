@@ -5,14 +5,14 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import {API_KEY, BASE_URL} from '../constants/index'
 import Picture from './Picture';
-import Details from './Details';
+import Details, { copyrightStyle } from './Details';
 
 
 function App() {
   const [picture, setPicture] = useState([])
   const [title, setTitle] = useState('')
   const [explanation, setExplanation] = useState('')
-
+  const [copyright, setCopyright] = useState('')
 
 
   useEffect(() => { 
@@ -37,6 +37,7 @@ function App() {
         console.log(res.data)
          setTitle(res.data.title);
          setExplanation(res.data.explanation)
+         setCopyright(`@${res.data.copyright}`)
       })
       .catch(err => {
       })
@@ -50,11 +51,10 @@ function App() {
     
     <div className="App">
       
-       
+       <h2>NASA Picture of the Day</h2>
       <Details title={title} explanation={explanation}/> 
       <Picture image={picture} />
-     
-      
+      <copyrightStyle copyright={copyright}/>
     </div>
  
   );

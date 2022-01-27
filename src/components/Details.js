@@ -39,10 +39,6 @@ padding-right: 27%;
 padding-left: 27%;
 line-height: 1.7rem;
 
-
-
-
-
 transform: scale(0.8);
   opacity: 0; // start of animation
   animation: ${kf} 5.0s ease-in-out forwards;
@@ -51,6 +47,7 @@ transform: scale(0.8);
   
 `
 
+
 const Details = props => {
     return (
         <StyledDetails>
@@ -58,9 +55,10 @@ const Details = props => {
         <ExplanationFont>
             <div className='explanation'>{props.explanation}</div>
         </ExplanationFont>
-        
+       
         </StyledDetails>
+        
         
   )
 }
-export default Details;
+export default Details; 
